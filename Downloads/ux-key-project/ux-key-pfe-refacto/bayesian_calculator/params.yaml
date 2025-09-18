@@ -1,0 +1,80 @@
+pipelines:
+  - name:   pip1
+    metric: intuitiveness
+    model:  gamma
+    preprocessing: 
+      lower_bound: 0.2
+      upper_bound: 10
+    
+    model_params:
+      beta: 1
+      alpha: 1
+      log_p: 1
+      q: 10
+      r: 10
+      s: 10
+    score:  cosine
+    score_params:
+      t0 : 1 
+      t1 : 1
+    sampling_parameters:
+      proposal: normal
+      step_size: 0.005  ## pour metropolis (le step de markov)
+      burn_in: 2000
+      n_iterations: 10000
+    output: Likelihood
+    output_params:
+      seuil: 2
+
+  - name:   pip2
+    metric: intuitiveness
+    model:  gamma
+    preprocessing: 
+      lower_bound: 0.2
+      upper_bound: 10
+    model_params:
+      beta: 1
+      alpha: 1
+      log_p: 1
+      q: 10
+      r: 10
+      s: 10
+    score:  cosine
+    score_params:
+      t0 : 1 
+      t1 : 1
+    sampling_parameters:
+      proposal: normal
+      step_size: 0.005
+      burn_in: 2000
+    output: CI
+    output_params:
+      confidence_alpha: 0.05
+      plot: 0
+      output_folder: CI 
+  
+  - name:   pip3
+    metric: intuitiveness
+    model:  gamma
+    preprocessing: 
+      lower_bound: 0.2
+      upper_bound: 10
+    model_params:
+      beta: 1
+      alpha: 1
+      log_p: 1
+      q: 10
+      r: 10
+      s: 10
+    score:  cosine
+    score_params:
+      t0 : 1 
+      t1 : 1
+    sampling_parameters:
+      proposal: normal
+      step_size: 0.005
+      burn_in: 2000
+    output: PDF
+    output_params:
+      output_name: pdf
+

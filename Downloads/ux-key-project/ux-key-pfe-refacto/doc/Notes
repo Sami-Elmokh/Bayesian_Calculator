@@ -1,0 +1,9 @@
+Step 1: Bayesian learning of the parameters of the distribution(beta, gamma)
+
+We assume at this point that the three metrics(intuitiveness, fluidity, speed) are independent. Seeing the graphs of their distributions, we can estimate that they each follow a Gamma distribution. So, at this point, for each metric, we try to get an algorithm that would make an online estimation of the parameters of the distribution through Bayesian learning.
+The output of this phase should be a video for the convergence of the parameters, for each metric considered.
+
+Note:
+* First, we consider only the distributions in the short file (data/endsomethingthou.csv)
+-->to see later on what made the long ones have weird distributions (data collection process,..)
+* To take into account the cases of missing values(eg for fluidity) + the extreme values in the distributions(eg not many values for small values of fluidity because it is unrealistic).
